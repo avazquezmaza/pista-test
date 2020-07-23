@@ -1,0 +1,46 @@
+# camel configuration
+camel:
+  springboot:
+    jmx-enabled: false
+    main-run-controller: true
+    name: pista-test
+    shutdownTimeout: 60
+    xmlRests: false
+    xmlRoutes: false
+  component:
+    servlet:
+      name: servlet
+      mapping:
+        enabled: true
+        context-path: /api/*
+        
+pista-test:
+  api:
+    path: /api
+    enableCors: true
+  api-docs:
+    path: /api-docs
+    version: 0.0.1
+    title: pista-test
+
+#logging configuration path
+logging:
+  config: classpath:logback.xml
+
+# spring boot management server instance properties
+management:
+  server:
+    port: 8080
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+      base-path: /
+
+# spring boot server instance properties
+server:
+  port: 8080
+
+      

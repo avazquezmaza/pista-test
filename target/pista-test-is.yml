@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    name: pista-test
+  spec:
+    tags:
+    - from:
+        kind: ImageStreamImage
+        name: pista-test@sha256:cfeb1171525cc25f591d1b51670bfb323f416d4af737e028ec8c510d5ee91a20
+        namespace: kcb-b2c-integration
+      name: 0.0.1

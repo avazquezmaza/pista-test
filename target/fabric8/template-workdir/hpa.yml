@@ -1,0 +1,21 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta1
+metadata:
+  name: pista-test
+spec:
+  scaleTargetRef:
+    kind: DeploymentConfig
+    name: pista-test
+    apiVersion: apps.openshift.io/v1
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 30
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: 50
+      

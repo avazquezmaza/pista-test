@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    fabric8.io/iconUrl: img/icons/camel.svg
+    prometheus.io/port: "9779"
+    prometheus.io/scrape: "true"
+  labels:
+    expose: "true"
+    app: pista-test
+    provider: fabric8
+    version: 0.0.1
+    group: ke.com.kcbgroup
+  name: pista-test
+spec:
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: pista-test
+    provider: fabric8
+    group: ke.com.kcbgroup

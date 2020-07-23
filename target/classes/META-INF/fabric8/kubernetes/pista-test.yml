@@ -1,0 +1,17 @@
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app: pista-test
+    provider: fabric8
+    version: 0.0.1
+    group: ke.com.kcbgroup
+  name: pista-test
+spec:
+  maxReplicas: 5
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps.openshift.io/v1
+    kind: DeploymentConfig
+    name: pista-test
